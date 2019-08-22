@@ -1,0 +1,284 @@
+/* GENERAL */
+html {
+	scroll-behavior: smooth;
+} 
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 500;
+	background-color: rgb(248, 247, 234);
+} 
+section{
+	margin-bottom: 5rem;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+} 
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+li {
+	list-style: none;
+}
+
+h1,h2,h3{
+	font-family: 'Amatic SC', cursive;
+}
+h2{
+	font-size: 4rem;
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	padding-bottom: 2rem;
+}
+h3{
+	font-size: 2.5rem;
+	color: rgb(112, 145, 22);
+	font-weight: bold;
+	padding-bottom: 1rem;
+}
+p{
+	text-align: justify;
+}
+article{
+	margin-bottom: 2rem;
+}
+.rouleau{
+	margin-top: 200px;
+}
+/* HEADER */
+header{
+	background-color: rgb(80, 80, 80);
+	position: fixed;
+		left: 0;
+		right: 0;
+		top:0;
+		z-index: 100;
+}
+#titrePrimaire{
+	display: flex;
+	align-items: center;
+	
+}
+#titreSecondaire{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+}
+#titrePrimaire h1{
+	margin: 0;
+	color: rgb(178,223,52);
+	font-size: 5rem;
+	transition: 0.5s;
+}
+#titreSecondaire p
+{
+	margin: 0;
+	color: rgb(178,223,52);
+	font-family: 'Amatic SC', cursive;
+	font-size: 4rem;
+	transition: 0.7s;
+}
+header img{
+	padding: 1rem;
+	width: 120px;
+	transition: 0.6s;
+}
+#logoEnTete{
+	text-align: center;
+}
+
+/* NAVIGATION */
+nav ul li {
+	display: inline-block;
+	font-weight: 400;
+	color: rgb(255, 255, 255);
+	font-size: 1.2rem;
+	transition: 0.6s;
+}
+ul .red {
+	color: coral!important;
+}
+
+nav ul li:hover {
+	color: rgb(202, 233, 119);
+}
+nav ul{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 1rem 0;
+	margin: 0;
+	transition: 0.6s;
+}
+nav{
+	background-color: rgb(49, 49, 49);
+}
+.welcome{
+	margin: 0!important;
+}
+.menu{
+	position: absolute;	
+	display: none;
+}
+.is-active .menu{
+	display: block;
+}
+.listeMenu{
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(49, 49, 49);
+	padding: 1rem!important;
+	width: 200px;
+}
+.listeMenu li{
+	margin-top: 0.5rem;
+}
+
+/* PRESENTATION */
+.presentation img{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+	-ms-filter: "FlipH";
+	
+	max-width: 100%;
+}
+
+/* METHODES */
+.methodes .methode{
+	display: flex;
+	justify-content: space-around;
+}
+.methode{
+	padding-top: 10rem;
+	padding-bottom: 3rem;
+	
+}
+.methode img{
+	width: 250px;
+	transition: transform 0.6s;
+}
+.methode img:hover{
+	transform: translatey(-3rem);
+	
+}
+.methode p{
+	font-weight: bold;
+	font-size: 1.6rem;
+	color: rgb(112, 145, 22);
+	text-align: center;
+	transform: translatey(-2rem);
+	z-index: -1;
+}
+
+/* REIKI */
+.reiki img{
+	width: 150px;
+	display: flex;
+	justify-content: center;
+	margin: 1rem auto;
+}
+
+/* TARIFS */
+
+.tarifs h3{
+	text-align: center;
+	padding-top: 2rem;
+}
+.tarifs table{
+	width: 800px;
+	margin: auto;
+	margin-bottom: 2rem;
+}
+.tarifs td{
+	padding: 0.6rem 2rem;
+	min-width: 250px;
+}
+.tarifs td:first-child{
+	font-weight: bold;
+}
+.tarifs td:nth-child(2){
+	text-align: center;
+}
+.tarifs td:last-child{
+	text-align: end;
+}
+
+/* CONTACT */
+.adresse{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+h4{
+	color: rgb(112, 145, 22);
+}
+
+form{
+	padding: 3rem 4rem;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(238, 238, 238);
+	-moz-box-shadow: 0px 0px 20px 0px #cfcfcf;
+	-webkit-box-shadow: 0px 0px 20px 0px #cfcfcf;
+	-o-box-shadow: 0px 0px 20px 0px #cfcfcf;
+	box-shadow: 0px 0px 20px 0px #cfcfcf;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#cfcfcf, Direction=NaN, Strength=20);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+}
+.demi{
+	display: flex;
+	justify-content: space-between;
+}
+#firstName,
+#lastName{
+	width: 48%;
+}
+input, textarea{
+	width: 100%;
+	font-family: 'Courier New', Courier, monospace;
+	border: 2px solid rgb(112, 145, 22);
+	border-radius: 2rem;
+	margin: 8px 0;
+	padding: 10px 30px;
+}
+.submit{
+	background-color: rgb(178,223,52);
+	color: white;
+	width:10rem;
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	justify-content: center;
+	margin: 1rem auto -4.5rem auto;
+}
+#map{
+	min-height: 300px;
+	width: 90%;
+	margin: 0 auto;
+	z-index: -10;
+}
+/* .leaflet-control-zoom {
+	display:none;
+} */
+
+/* CONNEXION */
+.connexion{
+	padding-top: 200px;
+	max-width: 1200px;
+	margin: auto;
+}
+
+/* PAGE PERSO */
+.past{
+	color: rgb(190, 190, 190);
+}
