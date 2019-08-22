@@ -1,0 +1,45 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div id="titrePrimaire" class="col-md-5">
+                <h1>Aurélie Contamine</h1>
+            </div>
+            <div class="col-md-2" id="logoEnTete">
+                <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
+            </div>
+            <div id="titreSecondaire" class="col-md-5">    
+                <p>- Naturopathie & Reïki -</p>
+            </div>
+        </div>    
+    </div>
+
+    <nav>
+        <div class="container" id='espaceP'>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <?php $userSession = new UserSession(); ?> 
+                            <?php if($userSession->isAuthenticated() == true): ?>
+                                <li class='red'>
+                                    <div class="toggle">
+                                        <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
+                                        <div class="menu">
+                                            <ul class="listeMenu">
+                                                <li><a href="index.php">Retour au site</a></li>
+                                                <li class='red'><a href="logout.php">Se déconnecter</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>                     
+                            <?php else : ?>
+                                <li class='red'><a href="connexion.php">Se connecter</a></li>          
+                            <?php endif; ?> 
+                        <li><a class="js-scrollTo" href="espaceAdmin.php">Mes Rendez-vous</a></li>
+                        <li><a class="js-scrollTo" href="patientele.php">Fiche Patientèle</a></li>                        
+                        <li><a class="blog" href="">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+    </nav>
+</header>

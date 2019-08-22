@@ -1,0 +1,85 @@
+<?php include "templates/head.phtml" ?>
+    <body> 
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div id="titrePrimaire" class="col-md-5">
+                        <h1>Aurélie Contamine</h1>
+                    </div>
+                    <div class="col-md-2" id="logoEnTete">
+                        <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
+                    </div>
+                    <div id="titreSecondaire" class="col-md-5">    
+                        <p>- Naturopathie & Reïki -</p>
+                    </div>
+                </div>    
+            </div>
+        
+            <nav>
+                <div class="container" id='espaceP'>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul>
+                                <?php $userSession = new UserSession(); ?> 
+                                    <?php if($userSession->isAuthenticated() == true): ?>
+                                        <li class='red'>
+                                            <div class="toggle">
+                                                <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
+                                                <div class="menu">
+                                                    <ul class="listeMenu">
+                                                        <li><a href="index.php">Retour au site</a></li>
+                                                        <li class='red'><a href="logout.php">Se déconnecter</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>                     
+                                    <?php else : ?>
+                                        <li class='red'><a href="connexion.php">Se connecter</a></li>          
+                                    <?php endif; ?> 
+                                <li><a class="js-scrollTo" href="espaceAdmin.php">Mes Rendez-vous</a></li>
+                                <li><a class="js-scrollTo" href="patientele.php"> Fiche Patientèle</a></li>                            
+                                <li><a class="blog" href="">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>    
+            </nav>
+        </header> 
+
+        <div class="rouleau">
+            <!-- MES RDV  -->
+            <section class="container">
+                <h3>Fiche de renseignement</h3>
+
+                <form action="update.php?id=<?=$idUser?>" method="POST">
+                    <label for='lastName'>Nom :</label><input type='text' name='lastName' id='lastName' class='modif' placeholder='<?= $userInfo['0']['lastName']; ?>'>
+                    <label for='firstName'>Prénom :</label><input type='text' name='firstName' id='firtName' class='modif' placeholder='<?= $userInfo['0']['firstName']; ?>'>
+                    <label for='age'>Age :</label><input type='text' name='age' id='age' class='modif' placeholder='<?= $userInfo['0']['age']; ?>'>
+                    <label for='sex'>Sexe :</label><input type='text' name='sex' id='sex' class='modif' placeholder='<?= $userInfo['0']['sex']; ?>'>
+                    <label for='height'>Taille :</label><input type='text' name='height' class='modif' id='height' placeholder='<?= $userInfo['0']['height']; ?>'>
+                    <label for='weight'>Poids :</label><input type='text' name='weight' class='modif' id='weight' placeholder='<?= $userInfo['0']['weight']; ?>'>
+                    <label for='diet'>Régime :</label><input type='text' name='diet' class='modif' id='diet' placeholder='<?= $userInfo['0']['diet']; ?>'>
+
+                    <label for='email'>E-mail :</label><input type='text' name='email' class='modif' id='email' placeholder='<?= $userInfo['0']['email']; ?>'>
+                    <label for='phone'>Téléphone :</label><input type='text' name='phone' class='modif' id='phone' placeholder='<?= $userInfo['0']['phone']; ?>'>
+
+                    <label for='reason'>Raison de la venu :</label><input type='text' name='reason' class='modif' id='reason' placeholder='<?= $userInfo['0']['reason']; ?>'>
+
+                    <label for='pathology'>Pathologies :</label><textarea type='text' name='pathology' class='modif' id='pathology' rows="5"  placeholder='<?= $userInfo['0']['pathology']; ?>'></textarea>
+                    <label for='treatment'>Traitements :</label><textarea type='text' name='treatment' class='modif' id='treatment' rows="5" placeholder='<?= $userInfo['0']['treatment']; ?>'></textarea>
+
+                    <label for='emunctory'>Emonctoires :</label><textarea type='text' name='emunctory' class='modif' id='emunctory' rows="5"placeholder='<?= $userInfo['0']['emunctory']; ?>'></textarea>
+
+                    <label for='other'>Autre :</label><textarea type='text' name='other' class='modif' id='other' rows="10" placeholder='<?= $userInfo['0']['other']; ?>'></textarea>
+
+                    <input class='submit' type='submit' value='Enregistrer'>
+
+                </form>
+
+            </section>
+        </div> <!--  fin de rouleau -->
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+        <script src="../js/function.js"></script>
+        <script src="../js/main.js"></script>
+    </body>
+</html>

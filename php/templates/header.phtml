@@ -1,0 +1,49 @@
+<header>
+        <div class="container">
+            <div class="row">
+                <div id="titrePrimaire" class="col-md-5">
+                    <h1>Aurélie Contamine</h1>
+                </div>
+                <div class="col-md-2" id="logoEnTete">
+                    <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
+                </div>
+                <div id="titreSecondaire" class="col-md-5">    
+                    <p>- Naturopathie & Reïki -</p>
+                </div>
+            </div>    
+        </div>
+    
+        <nav>
+            <div class="container" id='index'>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul>
+                            <li><a class="js-scrollTo" href="#presentation">Présentation</a></li>
+                            <li><a class="js-scrollTo" href="#naturo">La Naturopathie</a></li>
+                            <li><a class="js-scrollTo" href="#methodes">Méthodes</a></li>
+                            <li><a class="js-scrollTo" href="#reiki">Le Reïki</a></li>
+                            <li><a class="js-scrollTo" href="#tarifs">Tarifs</a></li>                            
+                            <li><a class="js-scrollTo" href="#contact">Contact</a></li>                          
+                            <li><a class="blog" href="">Blog</a></li>
+                            <?php $userSession = new UserSession(); ?> 
+                                <?php if($userSession->isAuthenticated() == true): ?>
+                                    <li class='red'>
+                                        <div class="toggle">
+                                            <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
+                                            <div class="menu">
+                                                <ul class="listeMenu">
+                                                    <li><a href="espacePerso.php">Espace personnel</a></li>
+                                                    <li class='red'><a href="logout.php">Se déconnecter</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>                     
+                                <?php else : ?>
+                                    <li class='red'><a href="connexion.php">Se connecter</a></li>          
+                                <?php endif; ?> 
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+        </nav>
+    </header>

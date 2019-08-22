@@ -1,0 +1,38 @@
+<?php include 'templates/head.phtml' ?>
+    <body>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div id="titrePrimaire" class="col-md-5">
+                        <h1>Aurélie Contamine</h1>
+                    </div>
+                    <div class="col-md-2" id="logoEnTete">
+                        <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
+                    </div>
+                    <div id="titreSecondaire" class="col-md-5">    
+                        <p>- Naturopathie & Reïki -</p>
+                    </div>
+                </div>    
+            </div>
+        </header>
+
+        <section class="connexion">
+            <h1>Se connecter</h1>
+            
+            <?php if (empty($_GET['err']) == false) : ?>
+                <div class="alert alert-danger" role="alert"><?= $_GET['err'] ?></div>
+            <?php endif; ?>
+
+            <form action="../php/login.php" method="POST">
+                <input type="email" id="email" name="email" placeholder="Votre email"  requiered>
+                <input type="password" name="password" id="password" placeholder="Mot de passe" requiered>
+                <input class="submit" type="submit" value="Envoyer">
+            </form>
+            <a href="inscription.php">Créer un compte</a>
+        </section>
+
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+        <script src="../js/function.js"></script>        
+        <script src="../js/main.js"></script>
+    </body>
+</html>

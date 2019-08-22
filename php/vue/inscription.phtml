@@ -1,0 +1,39 @@
+<?php include 'templates/head.phtml' ?>
+    <body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div id="titrePrimaire" class="col-md-5">
+                    <h1>Aurélie Contamine</h1>
+                </div>
+                <div class="col-md-2" id="logoEnTete">
+                    <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
+                </div>
+                <div id="titreSecondaire" class="col-md-5">    
+                    <p>- Naturopathie & Reïki -</p>
+                </div>
+            </div>    
+        </div>
+    </header>
+
+    <section class="connexion">
+        <h1>Inscription</h1>
+        
+        <form action="login.php" method="POST">
+            <div class="demi">
+                <input type="text" id="firstName" name="firstName" placeholder="Votre Prénom" requiered>
+                <input type="text" id="lastName" name="lastName" placeholder="Votre Nom" requiered>
+            </div>
+            <input type="email" id="email" name="email" placeholder="Votre email" requiered>
+            <input type="password" id="password" name="password" placeholder="Mot de passe" requiered>
+            <input type="password" id="cpassword" name="cpassword" placeholder="Confirmer votre mot de passe" requiered>
+            <input type="submit" value="Envoyer" id="connect">
+        </form>
+        <a href="connexion.php">j'ai déja un compte</a> 
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="../js/function.js"></script>
+    <script src="../js/main.js"></script>
+    </body>
+</html>
