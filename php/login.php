@@ -32,7 +32,7 @@ if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
             $requete = $pdo->prepare("
             INSERT
             INTO
-            User(email,password,firstName, lastName)
+            User(email,password,firstName,lastName)
             VALUES(?,?,?,?)
                 ");
             $requete->execute([$_POST['email'],$hashPassword,ucfirst(strtolower($_POST['firstName'])),ucfirst(strtolower($_POST['lastName']))]);
