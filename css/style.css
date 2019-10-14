@@ -216,6 +216,9 @@ nav{
 	justify-content: center;
 	margin-bottom: 2rem;
 }
+.adresse p{
+	text-align: center;
+}
 h4{
 	color: rgb(112, 145, 22);
 }
@@ -243,7 +246,7 @@ form{
 #lastName{
 	width: 48%;
 }
-input, textarea{
+input, textarea, select {
 	width: 100%;
 	font-family: 'Courier New', Courier, monospace;
 	border: 2px solid rgb(112, 145, 22);
@@ -265,7 +268,7 @@ input, textarea{
 	min-height: 300px;
 	width: 90%;
 	margin: 0 auto;
-	z-index: -10;
+	z-index: 1;
 }
 /* .leaflet-control-zoom {
 	display:none;

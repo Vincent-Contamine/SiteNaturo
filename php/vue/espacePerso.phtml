@@ -36,8 +36,8 @@
                                     <?php else : ?>
                                         <li class='red'><a href="connexion.php">Se connecter</a></li>          
                                     <?php endif; ?> 
-                                <li><a class="js-scrollTo" href="#presentation">Mes Rendez-vous</a></li>
-                                <li><a class="js-scrollTo" href="#naturo">Prendre Rdv</a></li>                        
+                                <li><a class="js-scrollTo" href="#rendezVous">Mes Rendez-vous</a></li>
+                                <li><a class="js-scrollTo" href="#resume">Résumé de consultation</a></li>                        
                                 <li><a class="blog" href="">Blog</a></li>
                             </ul>
                         </div>
@@ -48,7 +48,7 @@
 
         <div class="rouleau">
             <!-- MES RDV  -->
-            <section class="container">
+            <section id="rendezVous" class="container">
                 <h3>Mes rendez-vous</h3>
                     <?php foreach($mesRdv as $rendezVous): ?>
                         <?php if ($rendezVous['date'] < $rendezVous['thisDay']):?>
@@ -59,7 +59,7 @@
                     <?php endforeach; ?>
             </section>
             <!-- PRENDRE RDV -->
-            <section class="container">
+            <section id="resume" class="container">
                 <h3>Résumé de consultation</h3>
                 
             </section>

@@ -17,9 +17,9 @@
         </header>
 
         <section class="connexion">
-            <h1>Se connecter</h1>
+            <h1 class="titre">Se connecter</h1>
             
-            <?php if (empty($_GET['err']) == false) : ?>
+            <?php if (!empty($_GET['err'])) : ?>
                 <div class="alert alert-danger" role="alert"><?= $_GET['err'] ?></div>
             <?php endif; ?>
 

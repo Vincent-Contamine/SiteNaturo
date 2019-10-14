@@ -3,8 +3,7 @@ include 'classes/bdd.class.php';
 
 $idUser= ($_GET['id']);
 
-var_dump($_POST);
-if (EMPTY($_POST)==FALSE) {
+if (!empty($_POST)) {
 
     $tab = $_POST;
 
@@ -20,7 +19,8 @@ if (EMPTY($_POST)==FALSE) {
             
         }
     }
-    if (empty($maChaine)==FALSE){
+    if (!empty($maChaine)){
+        
         $bdd = new BDD;
         $requete = "UPDATE User SET" . $maChaine . "WHERE User.user_id = ?";
         $bdd->update($requete, [$idUser]);

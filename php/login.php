@@ -1,6 +1,8 @@
 <?php 
 
-include "bdd_connexion.php";
+include 'classes/bdd.class.php';
+include 'classes/userSession.class.php';
+$bdd = new BDD();
 
 function hashPassword($password){
     $salt = '$2y$11$' .substr(bin2hex(openssl_random_pseudo_bytes(32)), 0, 22); 
@@ -13,43 +15,33 @@ function verifyPassword($password, $hashPassword){
 
 if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
 {
-    $requete = $pdo->prepare("
-    SELECT
-    *
-    FROM
-    User
-    WHERE
-    email = ?  
-        ");
-    $requete->execute([$_POST['email']]);
-    $user = $requete->fetch();
+    $requete = " SELECT user_id, email, firstName, lastName, password FROM User WHERE email = ? ";
+    $user = $bdd->selectOne($requete,[$_POST['email']]);
+    
     if (empty($user))
     {
-        if (array_key_exists('cpassword', $_POST))
+        if (array_key_exists('cpassword', $_POST) )
         {  
             $password = $_POST['password'];
             $hashPassword = hashPassword($password);
-            $requete = $pdo->prepare("
-            INSERT
-            INTO
-            User(email,password,firstName,lastName)
-            VALUES(?,?,?,?)
-                ");
-            $requete->execute([$_POST['email'],$hashPassword,ucfirst(strtolower($_POST['firstName'])),ucfirst(strtolower($_POST['lastName']))]);
-            $lastId = $pdo->lastInsertId();
-            $requete = $pdo->prepare("
-            SELECT
-            user_id,
-            email,
-            firstName,
-            lastName
-            FROM
-            User
-            WHERE
-            user_id = ?
-                ");
-            $requete->execute([$lastId]);
-            $user = $requete->fetch();
+
+            $requete = "INSERT INTO User(email,password,firstName,lastName) VALUES (?,?,?,?) ";
+            $user = $bdd->update($requete,[strtolower($_POST['email']),$hashPassword,ucfirst(strtolower($_POST['firstName'])),ucfirst(strtolower($_POST['lastName']))]);
+            
+            $lastId = $bdd->getLastId();
+            
+            $requete = " SELECT
+                user_id,
+                email,
+                firstName,
+                lastName
+                FROM
+                User
+                WHERE
+                user_id = ?
+                ";
+            $user = $bdd->selectOne($requete,[$lastId]);
+            
             if (empty($user))
             {
                 $erreur = "Erreur lors de la création du compte";
@@ -57,22 +49,19 @@ if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
 		        exit();
             }
             else 
-            {
-                $userSession = new UserSession();
-                $userSession->create(
-                    $user['user_id'],$user['firstName'],$user['lastName'],$user['email']
-                ); 
-                header('Location: espacePerso.php');
-                exit();  
+            {       
+            $userSession = new UserSession();
+            $userSession->create($user['user_id'],$user['firstName'],$user['lastName'],$user['email']); 
+            header('Location: espacePerso.php');
+            exit();  
             }
         }
         else 
         {
             $erreur = "Le compte n'existe pas";
             header('Location: connexion.php?err='.$erreur); 
-		    exit();
+	        exit();
         }
-
     }
     else 
     {
@@ -80,10 +69,8 @@ if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
         $hashPassword = $user['password'];        
         if (verifyPassword($password, $hashPassword) == true)
         {
-            
             $userSession = new UserSession();
-            $userSession->create(
-                $user['user_id'],$user['firstName'],$user['lastName'],$user['email']
+            $userSession->create($user['user_id'],$user['firstName'],$user['lastName'],$user['email']
             ); 
             header('Location: espacePerso.php');
 		    exit();  
@@ -94,9 +81,7 @@ if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
             header('Location: connexion.php?err='.$erreur);
 		    exit();
         }         
-    }
-    
-    
+    } 
 }
 
 

@@ -17,7 +17,10 @@
     </header>
 
     <section class="connexion">
-        <h1>Inscription</h1>
+        <h1 class="titre">Inscription</h1>
+        <?php if (!empty($_GET['err'])) : ?>
+            <div class="alert alert-danger" role="alert"><?= $_GET['err'] ?></div>
+        <?php endif; ?>
         
         <form action="login.php" method="POST">
             <div class="demi">

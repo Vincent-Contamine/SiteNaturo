@@ -47,15 +47,22 @@
         </header> 
 
         <div class="rouleau">
-            <!-- MES RDV  -->
             <section class="container">
-                <h3>Fiche de renseignement<br><a href="editUser.php?id= <?= $userInfo['0']['user_id']; ?>" style="font-family: Arial; font-size: 1rem; color: black;">(modifier)</a></h3>
-                <p>Nom : <?= $userInfo['0']['lastName']; ?><br>Prenom : <?= $userInfo['0']['firstName']; ?><br>Age : <?= $userInfo['0']['age']; ?><br>Sexe : <?= $userInfo['0']['sex']; ?><br>Taille : <?= $userInfo['0']['height']; ?><br>Poids : <?= $userInfo['0']['weight']; ?><br>Régime : <?= $userInfo['0']['diet']; ?></p>
-                <p>Email : <?= $userInfo['0']['email']; ?><br>Téléphone : <?= $userInfo['0']['phone']; ?></p>
-                <p>Raison de la venu : <?= $userInfo['0']['reason']; ?></p>
-                <p>Pathologies : <?= $userInfo['0']['pathology']; ?><br>Traitements : <?= $userInfo['0']['treatment']; ?></p>
-                <p>Emonctoires : <?= $userInfo['0']['emunctory']; ?></p>
-                <p>Autres informations : <?= $userInfo['0']['other']; ?></p>
+                <h3>Fiche de renseignement<br><a href="editUser.php?id= <?= $userInfo['user_id']; ?>" style="font-family: Arial; font-size: 1rem; color: black;">(modifier)</a></h3>
+                    <p> <strong>Nom : </strong><?= $userInfo['lastName']; ?><br>
+                        <strong>Prenom : </strong><?= $userInfo['firstName']; ?><br>
+                        <strong>Date de naissance : </strong><?= $userInfo['dateEu']; ?><br>
+                        <strong>Sexe : </strong><?= $userInfo['sex']; ?><br>
+                        <strong>Taille : </strong><?= $userInfo['height']; ?><br>
+                        <strong>Poids : </strong><?= $userInfo['weight']; ?><br>
+                        <strong>Régime : </strong><?= $userInfo['diet']; ?></p>
+                    <p> <strong>Email : </strong><?= $userInfo['email']; ?><br>
+                        <strong>Téléphone : </strong><?= $userInfo['phone']; ?></p>
+                    <p> <strong>Raison de la venu : </strong><?= $userInfo['reason']; ?></p>
+                    <p> <strong>Pathologies : </strong><?= $userInfo['pathology']; ?><br>
+                        <strong>Traitements : </strong><?= $userInfo['treatment']; ?></p>
+                    <p> <strong>Emonctoires : </strong><?= $userInfo['emunctory']; ?></p>
+                    <p> <strong>Autres informations : </strong><?= $userInfo['other']; ?></p>
 
             </section>
         </div> <!--  fin de rouleau -->
