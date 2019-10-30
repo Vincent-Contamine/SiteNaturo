@@ -46,6 +46,12 @@ article{
 .rouleau{
 	margin-top: 200px;
 }
+.inactif {
+	display: none;
+}
+.fa-trash{
+	padding-left: 1rem ;
+}
 /* HEADER */
 header{
 	background-color: rgb(80, 80, 80);
@@ -88,7 +94,6 @@ header img{
 #logoEnTete{
 	text-align: center;
 }
-
 /* NAVIGATION */
 nav ul li {
 	display: inline-block;
@@ -121,6 +126,7 @@ nav{
 .menu{
 	position: absolute;	
 	display: none;
+	z-index: 25;
 }
 .is-active .menu{
 	display: block;
@@ -131,11 +137,11 @@ nav{
 	background-color: rgb(49, 49, 49);
 	padding: 1rem!important;
 	width: 200px;
+
 }
 .listeMenu li{
 	margin-top: 0.5rem;
 }
-
 /* PRESENTATION */
 .presentation img{
     -moz-transform: scaleX(-1);
@@ -160,6 +166,7 @@ nav{
 }
 .methode img{
 	width: 250px;
+	padding: 15px;
 	transition: transform 0.6s;
 }
 .methode img:hover{
@@ -173,6 +180,27 @@ nav{
 	text-align: center;
 	transform: translatey(-2rem);
 	z-index: -1;
+}
+.retour{
+	color: rgb(112, 145, 22);
+	font-weight: 400;
+	font-size: 1.2rem;
+}
+.retour:hover{
+	color: rgb(248, 247, 234);
+}
+.image{
+	margin-top: 145px;
+	background-image: url('../img/methodes/sunset.jpg');
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: cover;
+	height: 700px;
+	
+}
+.titre_methode{
+	text-align: center;
+	padding-top: 2rem;
 }
 
 /* REIKI */
@@ -281,7 +309,114 @@ input, textarea, select {
 	margin: auto;
 }
 
-/* PAGE PERSO */
+/* RENDEZ-VOUS */
 .past{
 	color: rgb(190, 190, 190);
+}
+
+/* FICHE PATIENT */
+.fichePatient-content{
+	position: fixed;
+	max-width: 550px;
+	margin-top: 50px;
+}
+
+@media screen and (max-width: 1199px){
+
+	#titrePrimaire h1{
+		font-size: 4rem;
+	}
+	#titreSecondaire p{
+		font-size: 3rem;
+	}
+	header img{
+		padding: 0.5rem;
+		width: 90px;
+	}
+	nav ul li{
+	font-size: 0.8rem;
+	}
+	nav ul{
+		padding: 0.5 0;
+	}
+}
+@media screen and (max-width: 767px){
+
+	header{
+		position: static;
+	}
+	#titrePrimaire {
+		justify-content: center;
+	}
+	#titrePrimaire h1{
+		text-align: center;
+	}
+	#titreSecondaire{
+		justify-content: center;
+	}
+	nav ul {
+		display: flex;
+		flex-direction: column;
+	}
+	nav ul li {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+	.rouleau, .image{
+		margin-top: 20px;
+	}
+	#presentation img{
+		display: none;
+	}
+	.methode{
+		padding-top: 0.5rem;
+		padding-bottom: 1rem;
+	}
+	.tarifs table{
+		width: 0;
+		max-width: 375px;
+	}
+	.tarifs tr{
+		max-width: 100%;
+	}
+	.tarifs td{
+		min-width: 0;
+		max-width: 250px;
+		padding: 0.6rem 1.2rem;
+	}
+	#contact form{
+		display: none;
+	}
+	.hamb{
+		display: flex;
+		margin-top: -36px;
+		justify-content: flex-end;
+	}
+	.hamburger{
+		width: 20%;
+		
+	}
+	.demi{
+		flex-direction: column;
+	}
+	#firstName,
+	#lastName{
+		width: 100%;
+	}
+	.titre{
+		text-align: center;
+	}
+	.userTag{
+		z-index: 25;
+		width: 75%;
+	}
+	.connexion{
+		padding-top: 20px;
+	}
+	.connexion form{
+		margin-bottom: 30px;
+	}
+	.connexion a{
+		padding-bottom: 15px;
+	}
 }

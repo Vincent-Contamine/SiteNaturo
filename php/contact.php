@@ -2,7 +2,7 @@
 include 'classes/bdd.class.php';
 
 if (!empty($_POST)) {
-    $myEmail = 'aurelie.c.naturopathe@gmail.com';
+    $myEmail = 'vincent.conta@gmail.com';
     $fullName = $_POST['firstName'] ."  ". $_POST['lastName'] ;
     $email_address = $_POST['email'];
     $message = $_POST['message'];
@@ -15,11 +15,9 @@ if (!empty($_POST)) {
     $test = mail($to, $from, $message, $headers);
 
     if ($test) {
-        header('Location: contact.php?q=1'); 
+        header('Location: index.php?success=Votre message a bien été envoyé#contact'); 
         exit();
     }
-    header('Location: contact.php?err=problemeTechnique'); 
+    header("Location: contact.php?err=Désolé, votre message n'a pas pu être envoyé#contact"); 
     exit();
 }
-
-// header('Location: index.php');

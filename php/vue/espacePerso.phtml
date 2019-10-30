@@ -22,7 +22,7 @@
                             <ul>
                                 <?php $userSession = new UserSession(); ?> 
                                     <?php if($userSession->isAuthenticated() == true): ?>
-                                        <li class='red'>
+                                        <li class='red userTag'>
                                             <div class="toggle">
                                                 <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
                                                 <div class="menu">
@@ -34,11 +34,14 @@
                                             </div>
                                         </li>                     
                                     <?php else : ?>
-                                        <li class='red'><a href="connexion.php">Se connecter</a></li>          
+                                        <li class='red userTag'><a href="connexion.php">Se connecter</a></li>          
                                     <?php endif; ?> 
-                                <li><a class="js-scrollTo" href="#rendezVous">Mes Rendez-vous</a></li>
-                                <li><a class="js-scrollTo" href="#resume">Résumé de consultation</a></li>                        
-                                <li><a class="blog" href="">Blog</a></li>
+                                    <div class="hamb">
+                                        <li class='hamburger inactif'><i class="fas fa-bars"></i></li> 
+                                    </div>
+                                <li class='menus'><a class="js-scrollTo" href="#rendezVous">Mes Rendez-vous</a></li>
+                                <li class='menus'><a class="js-scrollTo" href="#resume">Résumé de consultation</a></li>                        
+                                <li class='menus'><a class="blog" href="">Blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -50,18 +53,22 @@
             <!-- MES RDV  -->
             <section id="rendezVous" class="container">
                 <h3>Mes rendez-vous</h3>
-                    <?php foreach($mesRdv as $rendezVous): ?>
-                        <?php if ($rendezVous['date'] < $rendezVous['thisDay']):?>
-                            <li class='past'> <a href> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?> </a></li>
-                        <?php else: ?>
-                            <li> <a href> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?> </a></li>
-                        <?php endif; ?>   
-                    <?php endforeach; ?>
+                    <li>
+                        <?php foreach($mesRdv as $rendezVous): ?>
+                            <?php if ($rendezVous['date'] < $rendezVous['thisDay']):?>
+                                <ul class='past'> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                            <?php else: ?>
+                                <ul> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                            <?php endif; ?>   
+                        <?php endforeach; ?>
+                    </li>
             </section>
             <!-- PRENDRE RDV -->
             <section id="resume" class="container">
                 <h3>Résumé de consultation</h3>
-                
+                    <div class="fichePatient-content">
+                        
+                    </div>
             </section>
         </div> <!--  fin de rouleau -->
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

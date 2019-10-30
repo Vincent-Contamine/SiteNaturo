@@ -47,16 +47,16 @@
             <h2>Methodes</h2>
                 <div class="row methode">
                     <div> 
-                        <a href="#"><img src="../img/methodes/FdB.jpg" alt="Fleurs de Bach"></a>
+                        <a href="fdb.php"><img src="../img/methodes/FdB.jpg" alt="Fleurs de Bach"></a>
                     </div>
                     <div>
-                        <a href="#"><img src="../img/methodes/Alimentation.jpg" alt="Alimentation"></a>
+                        <a href="alimentation.php"><img src="../img/methodes/Alimentation.jpg" alt="Alimentation"></a>
                     </div>
                     <div>
-                        <a href="#"><img src="../img/methodes/HE.jpg" alt="Huiles essentielles"></a>
+                        <a href="huileEss.php"><img src="../img/methodes/HE.jpg" alt="Huiles essentielles"></a>
                     </div>
                     <div>
-                        <a href="#"><img src="../img/methodes/Litho.jpg" alt="Lithothérapie"></a>
+                        <a href="litho.php"><img src="../img/methodes/Litho.jpg" alt="Lithothérapie"></a>
                     </div> 
                 </div>
         </section>
@@ -122,12 +122,16 @@
                 </div>
                 <div class="col-md-6">
                 <form action="contact.php" name="contact_form" method="POST">
-                    
+                <?php if (!empty($_GET['success'])) : ?>
+                    <div class="alert alert-success" role="alert"><?= $_GET['success'] ?></div>
+                <?php elseif (!empty($_GET['err'])) : ?>
+                    <div class="alert alert-danger" role="alert"><?= $_GET['err'] ?></div>
+                <?php endif; ?>
                     <div class="demi">
-                        <input type="text" id="firstName" name="firstName" placeholder="Votre Prénom" requiered>
-                        <input type="text" id="lastName" name="lastName" placeholder="Votre Nom" requiered>
+                        <input type="text" id="firstName" name="firstName" placeholder="Prénom" requiered>
+                        <input type="text" id="lastName" name="lastName" placeholder="Nom" requiered>
                     </div>
-                    <input type="text" id="email" name="email" placeholder="Votre email" requiered>
+                    <input type="text" id="email" name="email" placeholder="email" requiered>
                     <textarea name="message" id="message" cols="30" rows="10" placeholder="Ecrivez ici votre message" requiered></textarea>
                     <input type="submit" class="submit btn-Form" value="Envoyer">           
                 </form>

@@ -18,16 +18,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><a class="js-scrollTo" href="#presentation">Présentation</a></li>
-                            <li><a class="js-scrollTo" href="#naturo">La Naturopathie</a></li>
-                            <li><a class="js-scrollTo" href="#methodes">Méthodes</a></li>
-                            <li><a class="js-scrollTo" href="#reiki">Le Reïki</a></li>
-                            <li><a class="js-scrollTo" href="#tarifs">Tarifs</a></li>                            
-                            <li><a class="js-scrollTo" href="#contact">Contact</a></li>                          
-                            <li><a class="blog" href="">Blog</a></li>
+                            <li class='menus'><a class="js-scrollTo" href="#presentation">Présentation</a></li>
+                            <li class='menus'><a class="js-scrollTo" href="#naturo">La Naturopathie</a></li>
+                            <li class='menus'><a class="js-scrollTo" href="#methodes">Méthodes</a></li>
+                            <li class='menus'><a class="js-scrollTo" href="#reiki">Le Reïki</a></li>
+                            <li class='menus'><a class="js-scrollTo" href="#tarifs">Tarifs</a></li>                            
+                            <li class='menus'><a class="js-scrollTo" href="#contact">Contact</a></li>                          
+                            <li class='menus'><a class="blog" href="">Blog</a></li>
                             <?php $userSession = new UserSession(); ?> 
                                 <?php if($userSession->isAuthenticated() == true): ?>
-                                    <li class='red'>
+                                    <li class='red userTag'>
                                         <div class="toggle">
                                             <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
                                             <div class="menu">
@@ -39,8 +39,11 @@
                                         </div>
                                     </li>                     
                                 <?php else : ?>
-                                    <li class='red'><a href="connexion.php">Se connecter</a></li>          
-                                <?php endif; ?> 
+                                    <li class='red userTag'><a href="connexion.php">Se connecter</a></li>          
+                                <?php endif; ?>
+                            <div class="hamb">
+                                <li class='hamburger inactif'><i class="fas fa-bars"></i></li> 
+                            </div>    
                         </ul>
                     </div>
                 </div>

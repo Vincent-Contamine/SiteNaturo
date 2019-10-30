@@ -6,29 +6,38 @@
             <!-- AJOUT RDV  -->
             <section class="container">
                 <h3>AJOUTER UN RENDEZ-VOUS</h3>
-                    <form action="addRdv.php" method="POST">
-                    <select name="patient" id="patient" requierd>
-                        <?php foreach ($users as $user) : ?>
-                            <option value="<?=$user['user_id']?>"><?=$user['firstName']." ".$user['lastName'] ?></option>
-                        <?php endforeach ?>
-                    </select>
-                    <select name="consultation" id="consultation" requierd>
-                        <option value="">Type de consultation</option>
-                        <option value="naturo1h30">Naturo 1h30</option>
-                        <option value="naturo1h">Naturo 1h</option>
-                        <option value="reiki60">reïki 60min</option>
-                        <option value="reiki45">reïki 45min</option>
-                        <option value="reiki30">reïki 30min</option>
-                    </select>
-                    <input type="date" id="date" name="date" min=<?=$date?> required>
-                    <div>
-                        <label for="startTime">heure de début :</label>
-                        <input type="time" id="startTime" name="startTime" min="08:00" max="19:00" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form action="addRdv.php" method="POST">
+                        <select name="patient" id="patient" requierd>
+                            <?php foreach ($users as $user) : ?>
+                                <option value="<?=$user['user_id']?>"><?=$user['firstName']." ".$user['lastName'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                        <select name="consultation" id="consultation" requierd>
+                            <option value="">Type de consultation</option>
+                            <option value="naturo1h30">Naturo 1h30</option>
+                            <option value="naturo1h">Naturo 1h</option>
+                            <option value="reiki60">reïki 60min</option>
+                            <option value="reiki45">reïki 45min</option>
+                            <option value="reiki30">reïki 30min</option>
+                        </select>
+                        <input type="date" id="date" name="date" min=<?=$date?> required>
+                        <div>
+                            <label for="startTime">heure de début :</label>
+                            <input type="time" id="startTime" name="startTime" min="08:00" max="19:00" required>
+                        </div>
+                        <textarea name="infoG" id="infoG" cols="30" rows="10" placeholder="informations générales"></textarea>
+                        <input class="submit" type="submit" value="Envoyer" id="connect">
+                        </form>
                     </div>
-                    <textarea name="infoG" id="infoG" cols="30" rows="10" placeholder="informations générales"></textarea>
-                    <input class="submit" type="submit" value="Envoyer" id="connect">
-                    </form>
-                
+                    <div class="col-md-6">
+                    <h4>Mes rendez-vous :</h4>
+                        <?php foreach($mesRdv as $rendezVous): ?>
+                            <li> <a href='ficheUser.php?id=<?= $rendezVous['user_id']?>'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?> avec <?=$rendezVous['firstName']?> <?=$rendezVous['lastName']?></a></li>   
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </section>
         </div> <!--  fin de rouleau -->
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

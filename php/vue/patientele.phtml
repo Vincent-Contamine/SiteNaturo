@@ -5,7 +5,13 @@
     <div class="rouleau">
             <!-- MES RDV  -->
             <section class="container">
-                <h3>Fiche patientèle<br><a href="#" style="font-family: Arial; font-size: 1rem; color: black;">(Ajouter une fiche)</a></h3>
+                <h3>Fiche patientèle<br><a href="editUser.php" style="font-family: Arial; font-size: 1rem; color: black;">(Ajouter une fiche)</a></h3>
+                
+                <li>
+                    <?php foreach ($users as $user) : ?> 
+                        <ul id=<?=$user['user_id']?> class='trashable'> <a href="ficheUser.php?id=<?=$user['user_id']?>"><?= $user['firstName']." ".$user['lastName'] ?></a> <a href='userDelete.php?id=<?= $user['user_id'] ?>'> <i class="fas fa-trash inactif"></i></a> </ul>
+                    <?php endforeach ?>
+                </li>
             </section>
         </div> <!--  fin de rouleau -->
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>

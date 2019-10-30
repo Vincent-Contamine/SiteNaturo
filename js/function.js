@@ -38,20 +38,23 @@ function verifyI(e){
 }
 
 function scrollFunction(){
-    if ($(window).scrollTop() > 10 ){
-        $('#titrePrimaire h1').css('font-size', "3rem");
-        $('#titreSecondaire p').css('font-size', "2rem");
-        $('header img').css('width', "80px").css('padding',"0.5rem");
-        $('nav ul li').css('font-size', "0.8rem");
-        $('nav ul').css('padding', "0.5rem 0");
+    if (window.outerWidth >= 767 ){
+        if ($(window).scrollTop() > 10 ){
+            $('#titrePrimaire h1').css('font-size', "3rem");
+            $('#titreSecondaire p').css('font-size', "2rem");
+            $('header img').css('width', "80px").css('padding',"0.5rem");
+            $('nav ul li').css('font-size', "0.8rem");
+            $('nav ul').css('padding', "0.5rem 0");
+        }
+        else if (window.outerWidth >= 1200 ){
+            $('#titrePrimaire h1').css('font-size', "5rem");
+            $('#titreSecondaire p').css('font-size', "4rem");
+            $('header img').css('width', "120px").css('padding',"1rem");
+            $('nav ul li').css('font-size', "1.2rem");
+            $('nav ul').css('padding', "1rem 0");
+        }
     }
-    else{
-        $('#titrePrimaire h1').css('font-size', "5rem");
-        $('#titreSecondaire p').css('font-size', "4rem");
-        $('header img').css('width', "120px").css('padding',"1rem");
-        $('nav ul li').css('font-size', "1.2rem");
-        $('nav ul').css('padding', "1rem 0");
-    }
+
 }
 
 function selectSection(e){
@@ -71,14 +74,13 @@ function action(e){
 function addTitle(e){
     $(this).append('<p>'+e.target.alt+'</p>');  
 }
-function removeTitle(e){
+function removeTitle(){
     $(this).find('p:last').remove();
 }
 
 function recupPlaceholder(e){
     var value = (e.currentTarget.value);
     if (value == ""){
-        console.log('ok');
         var placeH = (e.currentTarget.placeholder);
         $(this).val(placeH);
     }
@@ -100,4 +102,42 @@ function verifForm(e){
         e.preventDefault();
         $('<div class="alert alert-warning" role="alert">Adresse email invalide !!</div>').insertBefore($('.demi'));
     }
+
+}
+
+function showReportAdmin(e){
+    e.preventDefault();
+            
+    var rdv_Id = e.currentTarget.id;
+    var lien = '<br><br><a href="modifResume.php?id='+rdv_Id+'" style="font-family: Arial; font-size: 1.2rem; color: rgb(112, 145, 22);">(modifier)</a>'
+
+    if (e.currentTarget.lastChild.firstChild == null){
+        $('.fichePatient-content').text("Pas de resumé disponible");
+        $('.fichePatient-content').append(lien);
+    }
+    else{
+        var content = e.currentTarget.lastChild.innerHTML;
+        $('.fichePatient-content').text(content);
+        $('.fichePatient-content').append(lien);
+    }    
+}
+
+function showReport(e){
+    e.preventDefault();
+    
+    if (e.currentTarget.lastElementChild.firstChild == null){
+        $('.fichePatient-content').text("Pas de resumé disponible");
+    }
+    else{
+        var content = e.currentTarget.lastElementChild.innerHTML;
+        $('.fichePatient-content').text(content);
+    }    
+}
+
+function addTrash(){
+   $(this.lastElementChild.firstElementChild).toggle();    
+}
+
+function showNav(){
+    $('.menus').toggle().removeClass('inactif');
 }
