@@ -56,14 +56,14 @@
                     <li>
                         <?php foreach($mesRdv as $rendezVous): ?>
                             <?php if ($rendezVous['date'] < $rendezVous['thisDay']):?>
-                                <ul class='past'> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                                <ul class='past'> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEU'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
                             <?php else: ?>
-                                <ul> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                                <ul> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEu'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
                             <?php endif; ?>   
                         <?php endforeach; ?>
                     </li>
             </section>
-            <!-- PRENDRE RDV -->
+            <!-- RESUME -->
             <section id="resume" class="container">
                 <h3>Résumé de consultation</h3>
                     <div class="fichePatient-content">

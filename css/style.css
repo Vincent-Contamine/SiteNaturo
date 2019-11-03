@@ -320,6 +320,10 @@ input, textarea, select {
 	max-width: 550px;
 	margin-top: 50px;
 }
+ #resume .fichePatient-content{
+	 position: static;
+	 margin-top: 25px;
+ }
 
 @media screen and (max-width: 1199px){
 
@@ -340,6 +344,18 @@ input, textarea, select {
 		padding: 0.5 0;
 	}
 }
+
+@media screen and (max-width: 990px){
+	#contact .demi{
+		flex-direction: column;
+	}
+	#firstName,
+	#lastName{
+		width: 100%;
+	}
+}
+
+
 @media screen and (max-width: 767px){
 
 	header{
