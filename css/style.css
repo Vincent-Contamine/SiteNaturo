@@ -27,7 +27,7 @@ h1,h2,h3{
 }
 h2{
 	font-size: 4rem;
-	color: rgb(0, 0, 0);
+	color: rgb(29, 39, 0);
 	font-weight: bold;
 	padding-bottom: 2rem;
 }
@@ -51,6 +51,12 @@ article{
 }
 .fa-trash{
 	padding-left: 1rem ;
+}
+.err404{
+	font-size: 2rem;
+	width: 500px;
+	margin: 220px auto;
+	color: rgb(196, 20, 20);
 }
 /* HEADER */
 header{
@@ -435,4 +441,9 @@ input, textarea, select {
 	.connexion a{
 		padding-bottom: 15px;
 	}
+	.err404{
+		font-size: 1rem;
+		width: 250px;
+	}
+	
 }

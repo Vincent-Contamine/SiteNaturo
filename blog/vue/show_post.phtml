@@ -1,0 +1,12 @@
+<!-- Page d'article de blog détaillé avec les commentaires -->
+<h2>Article</h2>
+
+<!-- Article du blog -->
+<section class="post">
+    <h3><?= htmlspecialchars($post['Title']) ?></h3>
+    <article><?= nl2br(htmlspecialchars($post['Content'])) ?></article>
+    <small>
+        Rédigé par Aurélie Contamine
+        le <?= $post['CreationTimestamp'] ?>
+    </small>
+</section>

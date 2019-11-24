@@ -9,7 +9,7 @@
                 
                 <li>
                     <?php foreach ($users as $user) : ?> 
-                        <ul id=<?=$user['user_id']?> class='trashable'> <a href="ficheUser.php?id=<?=$user['user_id']?>"><?= $user['firstName']." ".$user['lastName'] ?></a> <a href='userDelete.php?id=<?= $user['user_id'] ?>'> <i class="fas fa-trash inactif"></i></a> </ul>
+                        <ul id=<?=$user['user_id']?> class='trashable'> <a href="ficheUser.php?id=<?=$user['user_id']?>"><?= htmlspecialchars($user['firstName'])." ".htmlspecialchars($user['lastName']) ?></a> <a href='userDelete.php?id=<?= $user['user_id'] ?>'> <i class="fas fa-trash inactif"></i></a> </ul>
                     <?php endforeach ?>
                 </li>
             </section>

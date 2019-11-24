@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>NaturoBlog</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans&display=swap"> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    
+    <link rel="stylesheet" href="../../css/normalize-8.0.1.css">
+    <link rel="stylesheet" href="../../css/blog-main.css">
+    <link rel="stylesheet" href="../../css/blog-theme.css">
+
+</head>
+<body>
+    <!-- En-tête commune de l'application -->
+    <header class="blog-header">
+        <h1><a href="indexBlog.php"><i class="fas fa-leaf"></i> NaturoBlog</a></h1>
+        <nav>
+            <a href="../../php/index.php"><i class="fas fa-angle-double-left"></i> Acceuil du site</a>
+        </nav>
+    </header>
+
+    <main>
+        <?php include '../vue/'.$vue.'.phtml' ?>
+    </main>
+
+    <footer class="blog-footer">
+        <small>Blog lié au site AC Naturopathie !!</small>
+    </footer>
+</body>
+</html>

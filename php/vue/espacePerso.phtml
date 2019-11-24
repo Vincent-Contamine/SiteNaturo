@@ -41,7 +41,7 @@
                                     </div>
                                 <li class='menus'><a class="js-scrollTo" href="#rendezVous">Mes Rendez-vous</a></li>
                                 <li class='menus'><a class="js-scrollTo" href="#resume">Résumé de consultation</a></li>                        
-                                <li class='menus'><a class="blog" href="">Blog</a></li>
+                                <li class='menus'><a class="blog" href="../blog/php/indexBlog.php">Blog</a></li>
                             </ul>
                         </div>
                     </div>
@@ -56,9 +56,9 @@
                     <li>
                         <?php foreach($mesRdv as $rendezVous): ?>
                             <?php if ($rendezVous['date'] < $rendezVous['thisDay']):?>
-                                <ul class='past'> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEU'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                                <ul class='past'> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEU'] ?><div class="inactif"><?=htmlspecialchars($rendezVous['content'])?></div> </a></ul>
                             <?php else: ?>
-                                <ul> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEu'] ?><div class="inactif"><?=$rendezVous['content']?></div> </a></ul>
+                                <ul> <a href="" class='rdv-espacePerso'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEu'] ?><div class="inactif"><?=htmlspecialchars($rendezVous['content'])?></div> </a></ul>
                             <?php endif; ?>   
                         <?php endforeach; ?>
                     </li>

@@ -11,7 +11,7 @@
                         <form action="addRdv.php" method="POST">
                         <select name="patient" id="patient" requierd>
                             <?php foreach ($users as $user) : ?>
-                                <option value="<?=$user['user_id']?>"><?=$user['firstName']." ".$user['lastName'] ?></option>
+                                <option value="<?=$user['user_id']?>"><?=htmlspecialchars($user['firstName'])." ".htmlspecialchars($user['lastName']) ?></option>
                             <?php endforeach ?>
                         </select>
                         <select name="consultation" id="consultation" requierd>
@@ -34,7 +34,7 @@
                     <div class="col-md-6">
                     <h4>Mes rendez-vous :</h4>
                         <?php foreach($mesRdv as $rendezVous): ?>
-                            <li> <a href='ficheUser.php?id=<?= $rendezVous['user_id']?>'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?> avec <?=$rendezVous['firstName']?> <?=$rendezVous['lastName']?></a></li>   
+                            <li> <a href='ficheUser.php?id=<?= $rendezVous['user_id']?>'> &#x2022 <?= htmlspecialchars($rendezVous['name'])?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['start_hour'] ?> avec <?=htmlspecialchars($rendezVous['firstName'])?> <?=htmlspecialchars($rendezVous['lastName'])?></a></li>   
                         <?php endforeach; ?>
                     </div>
                 </div>

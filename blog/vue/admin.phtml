@@ -1,0 +1,31 @@
+<h2><i class="fa fa-cogs"></i> Panneau d'administration</h2>
+
+<section class="admin">
+    <nav>
+        <a href="add_post.php">Rédiger un nouvel article</a>
+    </nav>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Article</th>
+                <th>Catégorie</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($posts as $post): ?>
+                <tr>
+                    <td><a href="show_post.php?id=<?= $post['Id'] ?>" target="_blank"><?= htmlspecialchars($post['Title']) ?></a></td>
+                    <td><?= substr(htmlspecialchars($post['Content']), 0, 200) ?></td>
+                    <td><?= $post['Category_Name'] ?></td>
+                    <td>
+                        <a class="edit" href="edit_post.php?id=<?= $post['Id'] ?>"><i class="fas fa-pencil-alt"></i></a>
+                        <a class="remove" href="delete_post.php?id=<?= $post['Id'] ?>"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</section>

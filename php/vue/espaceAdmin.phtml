@@ -8,7 +8,7 @@
                 <h3>Mes rendez-vous<br><a href="addAppointment.php" style="font-family: Arial; font-size: 1rem; color: black;">(Ajouter un rendez-vous)</a></h3>
                 <li>
                     <?php foreach($mesRdv as $rendezVous): ?>
-                        <ul class='trashable'> <a href='ficheUser.php?id=<?= $rendezVous['user_id']?>' class='espaceAdmin-rdv'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEu']?> avec <?=$rendezVous['firstName']?> <?=$rendezVous['lastName']?></a> <a href='rdvDelete.php?id=<?= $rendezVous['rdv_id']?>'> <i class="fas fa-trash inactif"></i></a></ul>   
+                        <ul class='trashable'> <a href='ficheUser.php?id=<?= htmlspecialchars($rendezVous['user_id'])?>' class='espaceAdmin-rdv'> &#x2022 <?= $rendezVous['name']?> le <?=$rendezVous['dateEu']?> à <?=$rendezVous['hourEu']?> avec <?=htmlspecialchars($rendezVous['firstName'])?> <?=htmlspecialchars($rendezVous['lastName'])?></a> <a href='rdvDelete.php?id=<?= $rendezVous['rdv_id']?>'> <i class="fas fa-trash inactif"></i></a></ul>   
                     <?php endforeach; ?>
                 </li>
             </section>

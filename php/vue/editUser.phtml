@@ -1,50 +1,6 @@
 <?php include "templates/head.phtml" ?>
     <body> 
-        <header>
-            <div class="container">
-                <div class="row">
-                    <div id="titrePrimaire" class="col-md-5">
-                        <h1>Aurélie Contamine</h1>
-                    </div>
-                    <div class="col-md-2" id="logoEnTete">
-                        <a href="index.php"><img src="../img/ACCut.png" alt="Logo-AC"></a>
-                    </div>
-                    <div id="titreSecondaire" class="col-md-5">    
-                        <p>- Naturopathie & Reïki -</p>
-                    </div>
-                </div>    
-            </div>
-        
-            <nav>
-                <div class="container" id='espaceP'>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ul>
-                                <?php $userSession = new UserSession(); ?> 
-                                    <?php if($userSession->isAuthenticated() == true): ?>
-                                        <li class='red'>
-                                            <div class="toggle">
-                                                <p class="welcome"><i class="fas fa-sort-down"></i> Bonjour <strong><?= htmlspecialchars($userSession->getName()) ?></strong></p>  
-                                                <div class="menu">
-                                                    <ul class="listeMenu">
-                                                        <li><a href="index.php">Retour au site</a></li>
-                                                        <li class='red'><a href="logout.php">Se déconnecter</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>                     
-                                    <?php else : ?>
-                                        <li class='red'><a href="connexion.php">Se connecter</a></li>          
-                                    <?php endif; ?> 
-                                <li><a class="js-scrollTo" href="espaceAdmin.php">Mes Rendez-vous</a></li>
-                                <li><a class="js-scrollTo" href="patientele.php"> Fiche Patientèle</a></li>                            
-                                <li><a class="blog" href="">Blog</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>    
-            </nav>
-        </header> 
+    <?php include "templates/headerAdmin.phtml" ?>
 
         <div class="rouleau">
             <!-- MES RDV  -->
@@ -52,25 +8,25 @@
                 <h3>Fiche de renseignement</h3>
 
                 <form action="update.php?id=<?=$idUser?>" method="POST">
-                    <label for='lastName'>Nom :</label><input type='text' name='lastName' id='lastName' class='modif' placeholder='<?= $userInfo['lastName']; ?>'>
-                    <label for='firstName'>Prénom :</label><input type='text' name='firstName' id='firtName' class='modif' placeholder='<?= $userInfo['firstName']; ?>'>
-                    <label for='birthday'>Date de naissance :</label><input type='date' name='birthday' id='birthday' class='modif' placeholder='<?= $userInfo['birthday']; ?>'>
-                    <label for='sex'>Sexe :</label><input type='text' name='sex' id='sex' class='modif' placeholder='<?= $userInfo['sex']; ?>'>
-                    <label for='height'>Taille :</label><input type='text' name='height' class='modif' id='height' placeholder='<?= $userInfo['height']; ?>'>
-                    <label for='weight'>Poids :</label><input type='text' name='weight' class='modif' id='weight' placeholder='<?= $userInfo['weight']; ?>'>
-                    <label for='diet'>Régime :</label><input type='text' name='diet' class='modif' id='diet' placeholder='<?= $userInfo['diet']; ?>'>
+                    <label for='lastName'>Nom :</label><input type='text' name='lastName' id='lastName' class='modif' placeholder='<?= htmlspecialchars($userInfo['lastName']); ?>'>
+                    <label for='firstName'>Prénom :</label><input type='text' name='firstName' id='firtName' class='modif' placeholder='<?= htmlspecialchars($userInfo['firstName']); ?>'>
+                    <label for='birthday'>Date de naissance :</label><input type='date' name='birthday' id='birthday' class='modif' placeholder='<?= htmlspecialchars($userInfo['birthday']); ?>'>
+                    <label for='sex'>Sexe :</label><input type='text' name='sex' id='sex' class='modif' placeholder='<?= htmlspecialchars($userInfo['sex']); ?>'>
+                    <label for='height'>Taille :</label><input type='text' name='height' class='modif' id='height' placeholder='<?= htmlspecialchars($userInfo['height']); ?>'>
+                    <label for='weight'>Poids :</label><input type='text' name='weight' class='modif' id='weight' placeholder='<?= htmlspecialchars($userInfo['weight']); ?>'>
+                    <label for='diet'>Régime :</label><input type='text' name='diet' class='modif' id='diet' placeholder='<?= htmlspecialchars($userInfo['diet']); ?>'>
 
-                    <label for='email'>E-mail :</label><input type='text' name='email' class='modif' id='email' placeholder='<?= $userInfo['email']; ?>'>
-                    <label for='phone'>Téléphone :</label><input type='text' name='phone' class='modif' id='phone' placeholder='<?= $userInfo['phone']; ?>'>
+                    <label for='email'>E-mail :</label><input type='text' name='email' class='modif' id='email' placeholder='<?= htmlspecialchars($userInfo['email']); ?>'>
+                    <label for='phone'>Téléphone :</label><input type='text' name='phone' class='modif' id='phone' placeholder='<?= htmlspecialchars($userInfo['phone']); ?>'>
 
-                    <label for='reason'>Raison de la venue :</label><input type='text' name='reason' class='modif' id='reason' placeholder='<?= $userInfo['reason']; ?>'>
+                    <label for='reason'>Raison de la venue :</label><input type='text' name='reason' class='modif' id='reason' placeholder='<?= htmlspecialchars($userInfo['reason']); ?>'>
 
-                    <label for='pathology'>Pathologies :</label><textarea type='text' name='pathology' class='modif' id='pathology' rows="5"  placeholder='<?= $userInfo['pathology']; ?>'></textarea>
-                    <label for='treatment'>Traitements :</label><textarea type='text' name='treatment' class='modif' id='treatment' rows="5" placeholder='<?= $userInfo['treatment']; ?>'></textarea>
+                    <label for='pathology'>Pathologies :</label><textarea type='text' name='pathology' class='modif' id='pathology' rows="5"  placeholder='<?= htmlspecialchars($userInfo['pathology']); ?>'></textarea>
+                    <label for='treatment'>Traitements :</label><textarea type='text' name='treatment' class='modif' id='treatment' rows="5" placeholder='<?= htmlspecialchars($userInfo['treatment']); ?>'></textarea>
 
-                    <label for='emunctory'>Emonctoires :</label><textarea type='text' name='emunctory' class='modif' id='emunctory' rows="5"placeholder='<?= $userInfo['emunctory']; ?>'></textarea>
+                    <label for='emunctory'>Emonctoires :</label><textarea type='text' name='emunctory' class='modif' id='emunctory' rows="5"placeholder='<?= htmlspecialchars($userInfo['emunctory']); ?>'></textarea>
 
-                    <label for='other'>Autre :</label><textarea type='text' name='other' class='modif' id='other' rows="10" placeholder='<?= $userInfo['other']; ?>'></textarea>
+                    <label for='other'>Autre :</label><textarea type='text' name='other' class='modif' id='other' rows="10" placeholder='<?= htmlspecialchars($userInfo['other']); ?>'></textarea>
 
                     <input class='submit' type='submit' value='Enregistrer'>
 

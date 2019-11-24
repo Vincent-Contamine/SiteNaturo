@@ -70,8 +70,7 @@ if (array_key_exists("email",$_POST) && array_key_exists("password",$_POST))
         if (verifyPassword($password, $hashPassword) == true)
         {
             $userSession = new UserSession();
-            $userSession->create($user['user_id'],$user['firstName'],$user['lastName'],$user['email']
-            ); 
+            $userSession->create($user['user_id'],$user['firstName'],$user['lastName'],$user['email']); 
             header('Location: espacePerso.php');
 		    exit();  
         }
